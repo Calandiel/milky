@@ -1,7 +1,7 @@
 # milky
 A UI library for Love2D, inspired by Unity game engine
 
-## Examples
+## Basic usage
 #### Loading the library
 ```lua
 local milky = require "milky"
@@ -45,3 +45,27 @@ function love.draw()
 end
 ```
 Note that while main_canvas wasnt necessary -- we could have drawn some_text directly -- it's recommended you use them as empty containers for all your ui widgets. This is conceptually similar to Unity's canvas and layout groups, and it simplifies UI code.
+
+
+#### Spawning, drawing and handling a button
+```lua
+function love.init()
+  our_button = milky.panel:new(milky, nil, "CLICK ME")
+    :size(100, 50)
+    -- create a button and pass it a function to call on click
+    :button(milky, function (self, button) -- takes in a reference to self and a reference to a button pressed on the keyboard
+			-- stuff that happens when you click the button goes here
+		end)
+end
+
+function love.draw()
+  main_canvas:draw() -- draw our ui - it also recursively calls draw on all its children
+end
+
+function love.mousepressed(x, y, button, isTouch)
+  -- x and y must be correctly scaled to reflect your screens virtual resolution
+  x = x / scale
+	y = y / scale
+	milky:onClick(x, y, button) -- this function checks which button was activated with the clicks and calls its onClick function
+end
+```
