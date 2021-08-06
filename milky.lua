@@ -265,6 +265,9 @@ function milky.panel:orientation(x, y)
 
 	return self
 end
+function milky.panel:label(label)
+	self.label = label
+end
 -- Inputs are booleans
 -- Stretching doesn't work if there is no parent!
 function milky.panel:stretch(x, y)
