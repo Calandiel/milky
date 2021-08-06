@@ -265,7 +265,7 @@ function milky.panel:orientation(x, y)
 
 	return self
 end
-function milky.panel:label(label)
+function milky.panel:update_label(label)
 	self.label = label
 end
 -- Inputs are booleans
