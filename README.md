@@ -33,7 +33,7 @@ end
 ### Updating the label on a text widget
 ```lua
 function love.update()
-  our_text_widget:label("New Label") -- draw the image
+  our_text_widget:update_label("New Label") -- draw the image
 end
 ```
 #### Spawning and drawing a panel under a canvas
