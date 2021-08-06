@@ -30,7 +30,12 @@ function love.draw()
   our_text_widget:draw() -- draw the image
 end
 ```
-
+### Updating the label on a text widget
+```lua
+function love.update()
+  our_text_widget:label("New Label") -- draw the image
+end
+```
 #### Spawning and drawing a panel under a canvas
 ```lua
 function love.init()
