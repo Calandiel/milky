@@ -9,6 +9,12 @@ local milky = require "milky"
 ### Necessary setup
 Milky needs to be passed all inputs and have draw frames finalized, like this:
 ```lua
+function love.init()
+	local font_size = milky.font_size(12)
+	local font_to_use = love.graphics.newFont("font/to/path.otf", font_size)
+	love.graphics.setFont(font_to_use)
+end
+
 function love.draw()
 	-- At the end of love.draw:
 	milky.finalize_frame()
@@ -110,6 +116,12 @@ end
 
 
 ## Advanced usage
+### Reading and setting reference resolution
+```lua
+local width, height = milky.get_reference_screen_dimensions()
+milky.get_reference_screen_dimensions(width, height)
+```
+If you change reference resolution remember to also reload the font using `milky.font_size` to get the right size.
 ### Hot loading
 Hot loading milky naively will likely result in dangling nils. You can cache library state as follows:
 ```lua
