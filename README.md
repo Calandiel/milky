@@ -93,6 +93,18 @@ Things like buttons can take in tooltips as arguments, but you can also create a
 ```lua
 milky.tooltip("Tooltip text", rect)
 ```
+### Buttons
+```lua
+if milky.icon_button(image, rect, "tooltip text or nil/skipped") then
+	-- do stuff when the button is pressed
+end
+if milky.text_button("text to draw on the button", rect, "tooltip text or nil/skipped") then
+	-- do stuff when the button is pressed
+end
+if milky.invisible_button(rect) then
+	-- do stuff when the button is pressed
+end
+```
 ## Advanced usage
 ### Reading and setting reference resolution
 ```lua
