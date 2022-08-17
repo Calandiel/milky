@@ -112,6 +112,15 @@ if milky.trigger(rect) then
 	-- Functionally, it operates similar to OnHover in many feature rich engines.
 end
 ```
+### On click
+Milky doesn't provide separate on click entries on most widgets in order to keep the API simple but it can easily be added with the exposed UI primitives:
+```
+milky.image(image, rect)
+if milky.invisible_button(rect) then
+	-- this will be executed if the above image is clicked (because it uses the same rect as the invisible button)
+end
+```
+In most cases, it's suggested to instead rely on buttons. If you need custom behaviour, it's suggested you wrap these constructs in higher level function.
 ## Advanced usage
 ### Reading and setting reference resolution
 ```lua
