@@ -58,11 +58,16 @@ function love.draw()
 end
 ```
 ### Drawing text
+A simple text panel:
 ```lua
 function love.draw()
 	local rect = milky.rect(x_position, y_position, width, height)
-	milky.text("Text to draw", rect, "center", "center")
+	milky.text_pane("Text to draw", rect)
 end
+```
+Just text, with custom align modes:
+```lua
+milky.text("Text to draw", rect, "center", "center")
 ```
 The last and second to last arguments take in "align modes", similar to those from Love2D.
 There are simpler functions you can use instead of you often rely on left/right/centered text rendering:
@@ -71,14 +76,23 @@ milky.centered_text("Text to draw", rect)
 milky.left_text("Text to draw", rect)
 milky.right_text("Text to draw", rect)
 ```
-
 ### Backgrounds
 ```lua
 function love.draw()
 	milky.background(background_image)
 end
 ```
-
+### Panels
+```lua
+function love.draw()
+	milky.panel(rect)	
+end
+```
+### Tooltips
+Things like buttons can take in tooltips as arguments, but you can also create a standalone tooltip zone:
+```lua
+milky.tooltip("Tooltip text", rect)
+```
 ## Advanced usage
 ### Reading and setting reference resolution
 ```lua
