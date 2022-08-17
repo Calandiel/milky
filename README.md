@@ -105,6 +105,13 @@ if milky.invisible_button(rect) then
 	-- do stuff when the button is pressed
 end
 ```
+### On hover / triggers
+```lua
+if milky.trigger(rect) then
+	-- This code will be executed if mouse is within the provided rect
+	-- Functionally, it operates similar to OnHover in many feature rich engines.
+end
+```
 ## Advanced usage
 ### Reading and setting reference resolution
 ```lua
