@@ -1,5 +1,6 @@
 # milky
-A UI library for Love2D, inspired by Unity game engine
+An immediate mode UI library for Love2D, used by Songs of The Eons.
+It uses EmmyLua notation on most of its functions so it's recommended you use an IDE with a plugin that supports it.
 
 ## Basic usage
 ### Loading the library
