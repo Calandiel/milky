@@ -47,13 +47,13 @@ end
 #### Drawing a picture
 ```lua
 function love.init()
-  local image_to_draw = love.graphics.newImage("my_image_path.png")
-  our_image = milky.panel:new(milky, nil, nil, image_to_draw) -- creates a UI widget that uses image_to_draw for its appearance
-    :size(300, 300) -- remember to resize the widget, otherwise the image wont be visible as the default size is 0, 0
+ 	IMAGE_TO_DRAW = love.graphics.newImage("my_image_path.png")
 end
 
 function love.draw()
-  our_image:draw() -- draw the image
+	local rect = milky.rect(x_position, y_position, width, height)
+	milky.image(IMAGE_TO_DRAW, rect)
+	milky.finalize_frame()
 end
 ```
 
