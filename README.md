@@ -6,7 +6,39 @@ A UI library for Love2D, inspired by Unity game engine
 ```lua
 local milky = require "milky"
 ```
-#### Spawning and drawing a picture
+### Necessary setup
+Milky needs to be passed all inputs and have draw frames finalized, like this:
+```lua
+function love.draw()
+	-- At the end of love.draw:
+	milky.finalize_frame()
+end
+
+function love.keypressed(key)
+	ui.on_keypressed(key)
+end
+
+function love.keyreleased(key)
+	ui.on_keyreleased(key)
+end
+
+function love.mousepressed(x, y, button, istouch, presses)
+	ui.on_mousepressed(x, y, button, istouch, presses)
+end
+
+function love.mousereleased(x, y, button, istouch, presses)
+	ui.on_mousereleased(x, y, button, istouch, presses)
+end
+
+function love.mousemoved(x, y, dx, dy, istouch)
+	ui.on_mousemoved(x, y, dx, dy, istouch)
+end
+
+function love.wheelmoved(x, y)
+	ui.on_wheelmoved(x, y)
+end
+```
+#### Drawing a picture
 ```lua
 function love.init()
   local image_to_draw = love.graphics.newImage("my_image_path.png")
