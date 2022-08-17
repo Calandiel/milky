@@ -45,7 +45,7 @@ function love.wheelmoved(x, y)
 	ui.on_wheelmoved(x, y)
 end
 ```
-#### Drawing a picture
+### Drawing a picture
 ```lua
 function love.init()
  	IMAGE_TO_DRAW = love.graphics.newImage("my_image_path.png")
@@ -57,64 +57,27 @@ function love.draw()
 	milky.finalize_frame()
 end
 ```
-
-#### Spawning and drawing a text widget
+### Drawing text
 ```lua
-function love.init()
-  our_text_widget = milky.panel:new(milky, nil, "Some text to render", nil)
-    :size(300, 300)
-end
-
 function love.draw()
-  our_text_widget:draw() -- draw the image
+	local rect = milky.rect(x_position, y_position, width, height)
+	milky.text("Text to draw", rect, "center", "center")
 end
 ```
-### Updating the label on a text widget
+The last and second to last arguments take in "align modes", similar to those from Love2D.
+There are simpler functions you can use instead of you often rely on left/right/centered text rendering:
 ```lua
-function love.update()
-  our_text_widget:update_label("New Label") -- draw the image
-end
+milky.centered_text("Text to draw", rect)
+milky.left_text("Text to draw", rect)
+milky.right_text("Text to draw", rect)
 ```
-#### Spawning and drawing a panel under a canvas
-```lua
-function love.init()
-  main_canvas = milky.panel:new(milky, nil, nil, nil) -- an empty, parentless panel - serves as a conceptual equivalent of Unity's canvas
-    :size(1920, 1080) -- assuming screen resolution of 1920 x 1080
-  local some_text = milky.panel:new(milky, main_canvas, "This is a text panel", nil) -- create a panel with main_canvas as its parent, it'll render "This is a text panel" at its position when main_canvas is drawn
-    :size(300, 300)
-end
 
+### Backgrounds
+```lua
 function love.draw()
-  main_canvas:draw() -- draw our ui - it also recursively calls draw on all its children
+	milky.background(background_image)
 end
 ```
-Note that while main_canvas wasnt necessary -- we could have drawn some_text directly -- it's recommended you use them as empty containers for all your ui widgets. This is conceptually similar to Unity's canvas and layout groups, and it simplifies UI code.
-
-
-#### Spawning, drawing and handling a button
-```lua
-function love.init()
-  our_button = milky.panel:new(milky, nil, "CLICK ME")
-    :size(100, 50)
-    -- create a button and pass it a function to call on click
-    :button(milky, function (self, button) -- takes in a reference to self and a reference to a button pressed on the keyboard
-			-- stuff that happens when you click the button goes here
-		end)
-end
-
-function love.draw()
-  main_canvas:draw() -- draw our ui - it also recursively calls draw on all its children
-end
-
-function love.mousepressed(x, y, button, isTouch)
-  -- x and y must be correctly scaled to reflect your screens virtual resolution
-  x = x / scale
-	y = y / scale
-	milky:onClick(x, y, button) -- this function checks which button was activated with the clicks and calls its onClick function
-end
-```
-
-
 
 ## Advanced usage
 ### Reading and setting reference resolution
