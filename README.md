@@ -2,7 +2,7 @@
 A UI library for Love2D, inspired by Unity game engine
 
 ## Basic usage
-#### Loading the library
+### Loading the library
 ```lua
 local milky = require "milky"
 ```
@@ -106,3 +106,13 @@ function love.mousepressed(x, y, button, isTouch)
 	milky:onClick(x, y, button) -- this function checks which button was activated with the clicks and calls its onClick function
 end
 ```
+
+
+
+## Advanced usage
+### Hot loading
+Hot loading milky naively will likely result in dangling nils. You can cache library state as follows:
+```lua
+local cache =milky.ui.cache_input_state()
+hotload()
+(require "milky").load_input_state_from_cache(cache)
