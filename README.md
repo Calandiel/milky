@@ -114,7 +114,7 @@ end
 ```
 ### On click
 Milky doesn't provide separate on click entries on most widgets in order to keep the API simple but it can easily be added with the exposed UI primitives:
-```
+```lua
 milky.image(image, rect)
 if milky.invisible_button(rect) then
 	-- this will be executed if the above image is clicked (because it uses the same rect as the invisible button)
