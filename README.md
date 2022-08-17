@@ -134,3 +134,11 @@ Hot loading milky naively will likely result in dangling nils. You can cache lib
 local cache =milky.ui.cache_input_state()
 hotload()
 (require "milky").load_input_state_from_cache(cache)
+```
+## Undocumented
+- rect manipulation
+- sliders
+- checkboxes
+- scrollviews
+- layouts
+- graphs
