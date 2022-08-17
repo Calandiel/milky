@@ -121,6 +121,23 @@ if milky.invisible_button(rect) then
 end
 ```
 In most cases, it's suggested to instead rely on buttons. If you need custom behaviour, it's suggested you wrap these constructs in higher level function.
+### Input
+Milky tracks key presses and mouse movements to expose a (hopefully) simpler API for dealing with Love's input events:
+```lua
+milky.is_key_pressed(key)
+milky.is_key_held(key)
+milky.is_key_released(key)
+milky.is_mouse_pressed(button)
+milky.is_mouse_held(button)
+milky.is_mouse_released(button)
+```
+`key` and `button` follow Love's KeyConstant and mouse button id's.
+There are also functions for dealing with mouse in more detail:
+```lua
+local x, y = milky.mouse_position()
+local delta = milky.mouse_wheel()
+local x, y = milky.mouse_press_position(button) -- nil if there is no press
+```
 ## Advanced usage
 ### Reading and setting reference resolution
 ```lua
